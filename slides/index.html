@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Intro to R</title>
+
+<script src="lib/header-attrs-2.16/header-attrs.js"></script>
+<script src="lib/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="lib/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+      .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore"><img src='images/rlogo_120x120.png' style='float:right;'/>Intro
+to R</h1>
+<h4 class="date">October 11-14, 2022</h4>
+
+</div>
+
+
+<style type="text/css">
+h1 {
+  font-size: 130%;
+  font-weight:bold;
+}
+h4 {
+  font-size: 14px;
+  font-style:italic;
+}
+p, li {
+  font-size: 120%;
+}
+</style>
+<p><br />
+</p>
+<div id="preparing-for-the-workshops" class="section level1">
+<h1>Preparing for the Workshops</h1>
+<!--------------------
+- [Registration](https://forms.gle/WjprKGkj9bT2CBr58){target="_blank" rel="noopener"}
+--------->
+<p><em>The workshop series is designed for beginners, but if you’re new
+to R or a bit rusty, check out these resources to learn the basics. It
+will pay off!</em></p>
+<ul>
+<li><a href="https://igis.ucanr.edu/Training/Learn-R/" target="_blank"
+rel="noopener">Getting Started with R</a> - suggested resources</li>
+</ul>
+<p><br />
+</p>
+</div>
+<div id="part-i.-getting-started" class="section level1">
+<h1>Part I. Getting Started</h1>
+<p><em>October 11, 2022. 3:30 - 5:00p PT</em></p>
+<ul>
+<li><p>Slides</p></li>
+<li><p>Scripts</p></li>
+</ul>
+<!---- 
+- [Slides](slides_pt1.html){target="_blank" rel="noopener"}  
+
+- Scripts: ex01.R &bull; ex02.R
+
+- Scripts: [ex01.R](https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/ex01.R){target="_blank" rel="noopener"} &bull; [ex02.R](https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/ex02.R){target="_blank" rel="noopener"}
+
+ - [Recording](https://youtu.be/E1d-pBtgAIw){target="_blank" rel="noopener"}
+---->
+<p><br />
+</p>
+</div>
+<div id="part-ii.-packages-piping-and-importing-data"
+class="section level1">
+<h1>Part II. Packages, Piping, and Importing Data</h1>
+<p><em>October 12, 2022. 3:30 - 5:00p PT</em></p>
+<ul>
+<li><p>Slides</p></li>
+<li><p>Scripts</p></li>
+</ul>
+<!-----
+- [Slides](slides_pt2.html){target="_blank" rel="noopener"}  
+
+- Scripts: [ex03.R](https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/ex03.R){target="_blank" rel="noopener"} &bull; [ex04.R](https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/ex04.R){target="_blank" rel="noopener"}
+
+- [Recording](https://www.youtube.com/watch?v=lwTi2z4aKj0){target="_blank" rel="noopener"}
+
+[ex03.R](){target="_blank" rel="noopener"} &bull; [ex04.R](){target="_blank" rel="noopener"}
+--------->
+<p><br />
+</p>
+</div>
+<div id="part-iii.-wrangling-your-data" class="section level1">
+<h1>Part III. Wrangling your Data</h1>
+<p><em>October 14, 2022. 10:30a - 12:00p PT</em></p>
+<ul>
+<li><p>Slides</p></li>
+<li><p>Notebooks</p></li>
+</ul>
+<!-----
+- [Slides](slides_pt2.html){target="_blank" rel="noopener"}  
+
+- Scripts: [ex03.R](https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/ex03.R){target="_blank" rel="noopener"} &bull; [ex04.R](https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/ex04.R){target="_blank" rel="noopener"}
+
+- [Recording](https://www.youtube.com/watch?v=lwTi2z4aKj0){target="_blank" rel="noopener"}
+
+[ex03.R](){target="_blank" rel="noopener"} &bull; [ex04.R](){target="_blank" rel="noopener"}
+--------->
+<br/>
+<hr/>
+<div>
+<p><a href="http://igis.ucanr.edu/" target="_blank"><img src="images/igis-logo_550x58x256.png" style="width:550px; height:58px;"/></a></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+</body>
+</html>
