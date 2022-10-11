@@ -1,0 +1,17 @@
+speed,surface,reaction_dist,breaking_dist
+40,dry,17,9
+50,dry,21,14
+60,dry,25,20
+70,dry,29,27
+80,dry,33,36
+90,dry,38,45
+100,dry,42,56
+110,dry,46,67
+40,wet,17,13
+50,wet,21,20
+60,wet,25,29
+70,wet,29,40
+80,wet,33,52
+90,wet,38,65
+100,wet,42,80
+110,wet,46,97
