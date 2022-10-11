@@ -136,6 +136,24 @@ var[7:5]
 pick_me = c(T, T, F, F, F, T, F, T, F, T)
 var[pick_me]
 
-## Take home message: If you put integers in the square brackets,
-## you'll get back those elements
+
+#############################################
+## BASIC PLOTTING
+#############################################
+
+x = rnorm(n = 5000, mean = 100, sd = 15)
+
+y = rnorm(n = 5000, mean = 100, sd = 5)
+
+hist(x)
+hist(y)
+
+boxplot(x, y)
+
+plot(x, y)
+
+theta = seq(from = 0, to = 2 * pi, by = 0.1)
+x = cos(theta)
+y = sin(theta)
+plot(x, y, type = "b")
 
