@@ -129,3 +129,16 @@ span.bigred {
   color:crimson;
   font-weight:bold;
 }
+span.fakecode {
+  display:block;
+  margin-top: 0.7em;
+  font-weight: normal;
+  font-size: 80%;
+  font-family: monospace;
+  color: #00428C;
+  padding: 0.2em 1em;
+  border: thin solid #95ABD0;
+  border-left-width: 1em;
+  background-color: #E4E5E7;
+  line-height: 150%;
+}
