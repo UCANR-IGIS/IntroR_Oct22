@@ -218,12 +218,24 @@ style="display:block; margin:1em auto; border:none;" /></p>
 </div>
 <div id="todays-outline" class="slide section level1">
 <h1>Today’s Outline</h1>
-<ul>
-<li><p>packages</p></li>
-<li><p>functions</p></li>
-<li><p>piping syntax</p></li>
-<li><p>exercise</p></li>
+<p><em>First half</em></p>
+<div class="indented2 li-single">
+<ul class="incremental">
+<li>packages</li>
+<li>functions</li>
+<li>piping syntax</li>
+<li>Exercise 3</li>
 </ul>
+</div>
+<p><em>Second half</em></p>
+<div class="indented2 li-single">
+<ul class="incremental">
+<li>data frames</li>
+<li>importing CSV files</li>
+<li>basic plotting with ggplot</li>
+<li>Exercise 4</li>
+</ul>
+</div>
 </div>
 <div id="r-packages" class="slide section level1">
 <h1>R Packages</h1>
@@ -447,20 +459,115 @@ lines:</p>
 <h1>Break!</h1>
 <p><img src="images/stretch-break-1130x590x256.png"
 style="display:block; margin:1em auto; border:none;" /></p>
+<p><br />
+</p>
 </div>
-<div id="importing-data" class="slide section level1">
-<h1>Importing Data</h1>
+<div id="data-frames" class="slide section level1">
+<h1>Data Frames</h1>
+<p><img src="images/table_500x169x256.png" /></p>
+<p>R has two data classes that organize data in rows and columns:</p>
+<div class="indented2">
+<ul>
+<li><strong>data frames</strong></li>
+<li><strong>matrices</strong><br />
+</li>
+</ul>
+</div>
+<h2 id="rows-and-columns-by-any-other-name.">Rows and Columns by any
+other name….</h2>
+<div style="width:250px; float:left;">
+<p><br />
+<br />
+<br />
+<br />
+<strong>rows</strong></p>
+<p><em>aka</em>:<br />
+- record<br />
+- case<br />
+- feature (spatial)</p>
+</div>
+<div style="display:inline-block; border:none;">
+<p><strong>columns</strong></p>
+<p><em>aka:</em> variable, field</p>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div class="colclear">
+
+</div>
+<p><br />
+</p>
+<h2 id="key-concepts">Key concepts</h2>
+<div class="indented2 li-single">
+<ul>
+<li>columns of a data frame are <em>vectors</em><br />
+</li>
+<li>columns have <em>names</em><br />
+</li>
+<li>you can refer to columns by their <em>name</em> or
+<em>position</em></li>
+</ul>
+</div>
+<p><br />
+</p>
+<h2 id="pulling-out-a-single-column">Pulling out a Single Column</h2>
+<p>To get an individual column, use <code>$</code></p>
+<div class="indented2 indented2r">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trees)</span></code></pre></div>
+<pre><code>##   Girth Height Volume
+## 1   8.3     70   10.3
+## 2   8.6     65   10.3
+## 3   8.8     63   10.2
+## 4  10.5     72   16.4
+## 5  10.7     81   18.8
+## 6  10.8     83   19.7</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height</span></code></pre></div>
+<pre><code>##  [1] 70 65 63 72 81 83 66 75 80 75 79 76 76 69 75 74 85 86 71 64 78 80 74 72 77
+## [26] 81 82 80 80 80 87</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##      63      72      76      76      80      87</code></pre>
+</div>
+<p><br />
+</p>
+<h2 id="subsetting-rows-and-columns">Subsetting rows and columns</h2>
+<p>You can use square bracket notation or tidyverse methods (dplyr).</p>
+<p>Come back for Part 3. Data Wrangling</p>
+<p><br />
+</p>
+</div>
+<div id="importing-data-best-practices" class="slide section level1">
+<h1>Importing Data Best Practices</h1>
+<ol style="list-style-type: decimal">
+<li><p>Organize up your R projects in <strong>folders</strong>
+(directories).</p></li>
+<li><p>Put your data and output files in subdirectories.</p></li>
+<li><p>Create an <strong>RStudio Project</strong> in the project
+folder.</p></li>
+<li><p>Use relative paths in your import and export functions.</p></li>
+</ol>
+<center>
+<img src="images/project_strructure_420x440x256.png" />
+</center>
+</div>
+<div id="file-paths" class="slide section level1">
+<h1>File Paths</h1>
 <p>When you import (or export) data, you’ll have to enter a
 <strong>path</strong> to a file.</p>
 <p>Paths can be <strong>complete</strong> or <strong>relative</strong>
 to the <strong>working directory</strong>.</p>
 <p>Complete path:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Andy/Documents/LREC/n2_study/plots/plot34a/data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;C:/Users/Andy/Documents/LREC/n2_study/plots/plot34a/data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>Example of a relative path:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p><br />
 </p>
@@ -483,20 +590,20 @@ class="bigred">\</span>trials<span class="bigred">\</span>data
 <div id="working-directory" class="slide section level1">
 <h1>Working Directory</h1>
 <div class="indented2">
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;./data/soil_moist.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>When using relative paths, the first <code>'.'</code> represents the
 <strong>working directory</strong>.</p>
 <p>Even though you don’t see it, there is <strong>always</strong>
 working directory. You can view the current working directory with:</p>
 <div class="indented2">
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 </div>
 <p><br />
 </p>
 <p>Changing the working directory is easy!</p>
 <div class="indented2">
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;D:/Data/DroneData/black_rascal_creek&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;D:/Data/DroneData/black_rascal_creek&quot;</span>)</span></code></pre></div>
 </div>
 <p>or use RStudio:</p>
 <center>
@@ -531,157 +638,10 @@ project folder.</p>
 <div class="protip">
 <p><code>read.csv()</code> works with direct URLs also:</p>
 <div class="indented2 indented2r">
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cars_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ucanr-igis/intror_feb22/main/data/stopping_dist_cars.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cars_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ucanr-igis/intror_oct22/main/data/stopping_dist_cars.csv&quot;</span>)</span></code></pre></div>
 </div>
 <p>Got data on Google Sheets? Use the <code>googlesheets4</code>
 package.</p>
-</div>
-</div>
-<div id="best-practices" class="slide section level1">
-<h1>Best Practices</h1>
-<ol style="list-style-type: decimal">
-<li><p>Organize up your R projects in <strong>folders</strong>
-(directories).</p></li>
-<li><p>Put your data and output files in subdirectories.</p></li>
-<li><p>Create an <strong>RStudio Project</strong> in the project
-folder.</p></li>
-<li><p>Use relative paths in your import and export functions.</p></li>
-</ol>
-<center>
-<img src="./images/project_strructure_420x440x256.png" />
-</center>
-</div>
-<div id="data-frames" class="slide section level1">
-<h1>Data Frames</h1>
-<p><img src="images/table_500x169x256.png" /></p>
-<p>R has two data classes that organize data in rows and columns:</p>
-<div class="indented2">
-<ul>
-<li><strong>data frames</strong></li>
-<li><strong>matrices</strong><br />
-</li>
-</ul>
-</div>
-<div style="width:250px; float:left;">
-<p><br />
-<br />
-<br />
-<br />
-<strong>rows</strong></p>
-<p><em>aka</em>:<br />
-- record<br />
-- case<br />
-- feature (spatial)</p>
-</div>
-<div style="display:inline-block; border:none;">
-<p><strong>columns</strong></p>
-<p><em>aka:</em> variable, field</p>
-<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa
-## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-</div>
-<div class="colclear">
-
-</div>
-<p><br />
-</p>
-<p><strong>Key concepts</strong></p>
-<div class="indented2 li-single">
-<ul>
-<li>columns of a data frame are <em>vectors</em><br />
-</li>
-<li>columns have <em>names</em><br />
-</li>
-<li>you can refer to columns by their <em>name</em> or
-<em>position</em></li>
-</ul>
-</div>
-</div>
-<div id="pulling-out-pieces-of-a-data-frame"
-class="slide section level1">
-<h1>Pulling Out Pieces of a Data Frame</h1>
-<h2 id="single-column">Single Column</h2>
-<p>To get an individual column, use <code>$</code></p>
-<div class="indented2 indented2r">
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trees)</span></code></pre></div>
-<pre><code>##   Girth Height Volume
-## 1   8.3     70   10.3
-## 2   8.6     65   10.3
-## 3   8.8     63   10.2
-## 4  10.5     72   16.4
-## 5  10.7     81   18.8
-## 6  10.8     83   19.7</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height</span></code></pre></div>
-<pre><code>##  [1] 70 65 63 72 81 83 66 75 80 75 79 76 76 69 75 74 85 86 71 64 78 80 74 72 77
-## [26] 81 82 80 80 80 87</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>Height <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##      63      72      76      76      80      87</code></pre>
-</div>
-<p><br />
-</p>
-<div class="protip">
-<p>You can <em>add a column</em> to a data frame using the
-<code>$</code> notation. Write an expression that:</p>
-<ol style="list-style-type: decimal">
-<li><p>References a new column with the $ operator <em>as though it
-existed</em></p></li>
-<li><p><em>Assigns</em> the new column values</p></li>
-</ol>
-<p>R will create the column <em>on the fly</em> and <em>add it</em> to
-the data frame</p>
-<p><br />
-</p>
-<p>Example:</p>
-<div class="indented2 indented2r">
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>trees<span class="sc">$</span>select_me <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(T,T,F), <span class="at">size =</span> <span class="fu">nrow</span>(trees), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>trees <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>##   Girth Height Volume select_me
-## 1   8.3     70   10.3      TRUE
-## 2   8.6     65   10.3      TRUE
-## 3   8.8     63   10.2      TRUE
-## 4  10.5     72   16.4      TRUE
-## 5  10.7     81   18.8     FALSE
-## 6  10.8     83   19.7      TRUE</code></pre>
-</div>
-</div>
-<p><br />
-</p>
-<h2 id="multiple-rows-andor-columns">Multiple Rows and/or Columns</h2>
-<p>You can <strong>subsample</strong> rows and columns from a data frame
-together with square bracket notation:</p>
-<div style="margin-left:4em; font-family:monospace; font-weight:bold;">
-my_dataframe[<em>rows-expression</em>, <em>columns-expression</em>]
-</div>
-<p>Where <em>rows-expression</em> is a vector of integers of Logicals
-(TRUE/FALSE) of the row numbers you want.</p>
-<div class="indented2 indented2r">
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>trees[<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code></pre></div>
-<pre><code>##    Girth Height Volume select_me
-## 5   10.7     81   18.8     FALSE
-## 6   10.8     83   19.7      TRUE
-## 7   11.0     66   15.6      TRUE
-## 8   11.0     75   18.2      TRUE
-## 9   11.1     80   22.6     FALSE
-## 10  11.2     75   19.9      TRUE</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>trees[ trees<span class="sc">$</span>Height <span class="sc">&gt;</span> <span class="dv">80</span>, ]</span></code></pre></div>
-<pre><code>##    Girth Height Volume select_me
-## 5   10.7     81   18.8     FALSE
-## 6   10.8     83   19.7      TRUE
-## 17  12.9     85   33.8      TRUE
-## 18  13.3     86   27.4      TRUE
-## 26  17.3     81   55.4      TRUE
-## 27  17.5     82   55.7      TRUE
-## 31  20.6     87   77.0      TRUE</code></pre>
-</div>
-<div class="protip">
-<p>Even if you’re subsetting just rows or just columns, you still need
-the comma in the square brackets!</p>
 </div>
 </div>
 <div id="exercise-4-importing-data-and-working-with-data-frames"
@@ -711,23 +671,166 @@ class="slide section level1">
 <p>View an entire data frame with
 <strong><code>View()</code></strong></p>
 <p>Grab an individual column with <strong><code>$</code></strong></p>
-<p>Grab specific rows and columns with <span
-style="font-weight:bold; font-family:monospace;">my_df[<em>rows-expression</em>,
-<em>cols-expression</em>]</span></p>
+<!------
+
+Grab specific rows and columns with <span style='font-weight:bold; font-family:monospace;'>my_df[*rows-expression*, *cols-expression*]</span>
+
 <div class="indented2">
-where <em>rows-expression</em> and <em>cols-expression</em> are a vector
-of:
-<div class="indented2">
-integers<br />
-logicals (TRUE / FALSE) (or an expression that returns a vector of
-logicals) column names
+where *rows-expression* and *cols-expression* are a vector of:
+  <div class="indented2">
+  integers  
+  logicals (TRUE / FALSE) (or an expression that returns a vector of logicals)
+  column names
+  </div>
 </div>
-</div>
+
+------>
 <p><br />
 </p>
 </div>
-<div id="linear-regression-model-teaser" class="slide section level1">
-<h1>Linear Regression Model (teaser)</h1>
+<div id="ggplot-101" class="slide section level1">
+<h1>ggplot 101</h1>
+<p>Load Palmer Penguins data frame:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
+##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+## 1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007
+## 2 Adelie  Torgersen           39.5          17.4         186    3800 fema…  2007
+## 3 Adelie  Torgersen           40.3          18           195    3250 fema…  2007
+## 4 Adelie  Torgersen           NA            NA            NA      NA &lt;NA&gt;   2007
+## 5 Adelie  Torgersen           36.7          19.3         193    3450 fema…  2007
+## 6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007
+## # … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</code></pre>
+<p><br />
+</p>
+<p>Use ggplot to make a scatterplot:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Bill Length vs Flipper Length for 3 Species of Penguins&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<p><img src="slides_pt2_files/figure-slidy/ggplot_demo-1.png" width="768" /></p>
+</div>
+<div id="anatomy-of-a-ggplot" class="slide section level1">
+<h1>Anatomy of a ggplot</h1>
+<style type="text/css">
+img.stackme {
+  position:absolute;
+  top:0;
+  left:0;
+}
+</style>
+<div style='position:relative; border:none; height:592px;'>
+<img src="images/ggplot_anatomy_001.png"/>
+<img src="images/ggplot_anatomy_002.png" class="incremental stackme"/>
+<img src="images/ggplot_anatomy_003.png" class="incremental stackme"/>
+<img src="images/ggplot_anatomy_004.png" class="incremental stackme"/>
+<img src="images/ggplot_anatomy_005.png" class="incremental stackme"/>
+<img src="images/ggplot_anatomy_006.png" class="incremental stackme"/>
+<img src="images/ggplot_anatomy_007.png" class="incremental stackme"/>
+</div>
+</div>
+<div id="aes-map-columns-to-symbology-properties"
+class="slide section level1">
+<h1><code>aes()</code>: map columns to symbology properties</h1>
+<pre style="font-weight:normal;">
+ggplot(penguins, <strong>aes(x = flipper_length_mm , y = bill_length_mm , color = species)</strong>) +
+  geom_point() +
+  ggtitle("Bill Length vs Flipper Length for 3 Species of Penguins")
+</pre>
+<div class="indented1 singlespace">
+<ul>
+<li><code>aes()</code> sets the default source for each visual property
+(or aesthetic) of the plot layers
+<ul>
+<li>note you don’t need to put column names in quotes<br />
+</li>
+</ul></li>
+<li>some common visual properties:</li>
+</ul>
+<div class="indented2">
+<p><code>x</code> - where it falls along the x-axis<br />
+<code>y</code> - where it falls along the y-axis<br />
+<code>color</code><br />
+<code>fill</code><br />
+<code>size</code></p>
+</div>
+<ul>
+<li>which visual properties are needed depends on the
+<code>geom_xxxx()</code> functions you use<br />
+</li>
+<li>only put in <code>aes()</code> the visual properties you want linked
+to the data</li>
+</ul>
+</div>
+</div>
+<div id="geoms" class="slide section level1">
+<h1>Geoms</h1>
+<div class="indented1">
+<ul>
+<li><p><code>geom_xxxx()</code> functions add layers</p></li>
+<li><p>drawn from the bottom up</p></li>
+<li><p>some common geoms:</p></li>
+</ul>
+<div class="indented2 singlespace" style="font-family:monospace;">
+<ul>
+<li>geom_point()<br />
+</li>
+<li>geom_bar()<br />
+</li>
+<li>geom_boxplot()<br />
+</li>
+<li>geom_histogram()<br />
+</li>
+</ul>
+</div>
+<ul>
+<li>visual properties can be linked to a column in the data frame or
+manually specified</li>
+</ul>
+<div class="indented2" style="font-family:monospace;">
+<p>geom_point(col = pop_size)<br />
+geom_point(col = “red”)</p>
+</div>
+<ul>
+<li><p>visual properties are inherited (from
+<code>aes()</code>)</p></li>
+<li><p>each geom has default color palettes and legend settings</p></li>
+</ul>
+</div>
+<p><br />
+</p>
+<h2 id="example-1">Example:</h2>
+<p>In the example below, note where <code>geom_boxplot()</code> gets its
+visual properties:</p>
+<div class="indented1 singlespace">
+<ul>
+<li><strong>x</strong> and <strong>y</strong> are linked to columns in
+the dataframe and inherited from <code>aes()</code><br />
+</li>
+<li><strong>color</strong>, <strong>fill</strong>, and
+<strong>size</strong> are manually specified</li>
+</ul>
+</div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">&quot;navy&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="slides_pt2_files/figure-slidy/ggplot2-1.png" width="768" /></p>
+<p><br />
+</p>
+<h2 id="adding-visual-elements-to-a-plot">Adding visual elements to a
+plot</h2>
+<p><code>geom_xxxx()</code> functions can also be used to add other
+graphic elements:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">&quot;navy&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">43.9</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">58</span>, <span class="at">label =</span> <span class="st">&quot;Gentoo penguins </span><span class="sc">\n</span><span class="st"> are just the best!&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_boxplot).</code></pre>
+<p><img src="slides_pt2_files/figure-slidy/ggplot3-1.png" width="768" /></p>
+<p><br />
+</p>
 </div>
 <div id="end" class="slide section level1">
 <h1>END!</h1>
