@@ -141,18 +141,22 @@ var[pick_me]
 ## BASIC PLOTTING
 #############################################
 
+# Create x and y
 x = rnorm(n = 5000, mean = 100, sd = 15)
-
 y = rnorm(n = 5000, mean = 100, sd = 5)
 
+# Start with a scatter plot
+plot(x, y)
+
+# Histogram shows the spread
 hist(x)
 hist(y)
 
+# Boxplot accepts multiple vectors, making it easy to compare side-by-side
 boxplot(x, y)
 
-plot(x, y)
-
-theta = seq(from = 0, to = 2 * pi, by = 0.1)
+# Make a circle
+theta = seq(from = 0, to = 2 * pi, by = 0.15)
 x = cos(theta)
 y = sin(theta)
 plot(x, y, type = "b")
