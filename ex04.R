@@ -91,13 +91,22 @@ stats_df$pop %>% mean()
 #####################################################################
 ## Let's create a data frame from scratch with some information about countries:
 
-iris
+countries = c("Canada", "Costa Rica", "Mexico", "United States")
+populations = c(10, 25, 20, 30)
+areas = c(30, 10, 20, 35)
 
-head(iris)
+## We can create the data frame with the data.frame() function.
+## The equal-length vectors are the arguments.
+stats_df = data.frame(country = countries, pop = populations, area = areas)
 
-nrow(iris)
+stats_df
 
-View(iris)
+# How many rows? columns?
+nrow(stats_df)
+ncol(stats_df)
 
-table(iris$Species)
+# You can grab a single column with the $
+stats_df$pop
+
+stats_df$pop %>% mean()
 
