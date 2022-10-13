@@ -27,14 +27,14 @@ mean(cars_df$speed)
 # or:
 cars_df$speed %>% mean()
 
+## Make a scatter plot of speed vs breaking distance:
+
+plot(cars_df$speed, cars_df$breaking_dist, pch = 16)
+
 ## CHALLENGE 1: What is the mean reaction distance?
 
 
 ## CHALLENGE 2: Compute the frequency table in the surface column
-
-## Make a scatter plot of speed vs breaking distance:
-
-plot(cars_df$speed, cars_df$breaking_dist, pch = 16)
 
 ####################################################
 ## IMPORT ANOTHER CSV FROM A URL
