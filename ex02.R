@@ -38,6 +38,8 @@ e
 f = 20:150
 f
 
+## What does head() do?
+
 head(f)
 
 # How many elements in a vector?
@@ -136,26 +138,41 @@ var[7:5]
 pick_me = c(T, T, F, F, F, T, F, T, F, T)
 var[pick_me]
 
+## Or better still, an expression that returns logical values
+
+big_num = (var >= 8)
+big_num
+
+var[big_num]
+
+## More compactly:
+
+var[ var >= 8 ]
 
 #############################################
 ## BASIC PLOTTING
 #############################################
 
-# Create x and y
+# Create vectors x and y
+
 x = rnorm(n = 5000, mean = 100, sd = 15)
 y = rnorm(n = 5000, mean = 100, sd = 5)
 
-# Start with a scatter plot
+# Start with a scatter plot:
+
 plot(x, y)
 
-# Histogram shows the spread
+# Histogram shows the spread of your data:
+
 hist(x)
 hist(y)
 
-# Boxplot accepts multiple vectors, making it easy to compare side-by-side
+# boxplot() accepts multiple vectors so you can compare the distributions side-by-side
+
 boxplot(x, y)
 
-# Make a circle
+# Let's make a circle!
+
 theta = seq(from = 0, to = 2 * pi, by = 0.15)
 x = cos(theta)
 y = sin(theta)

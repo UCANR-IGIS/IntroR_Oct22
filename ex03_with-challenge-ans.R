@@ -30,14 +30,22 @@ summary(archbold.apple)
 ## CHALLENGE 1: Construct a sequence of numbers from -10 to 10 by 0.2.
 ## TIP: read the help page for seq() by entering: ?seq
  
+seq(-10, 10, 0.2)
+
+# or:
+
+seq(from = -10, to = 10, by = 0.2)
 
 ## CHALLENGE 2: Construct a sequence of exactly 500 numbers evenly spaced from 1 to 7. 
 ## Then write another expression which verifies it has 500 numbers.
 
+seq(from = -10, to = 10, length.out = 500)
  
 ## CHALLENGE 3: Simulate 100 rolls of a six-sided dice. View the distribution using a histogram.
 
-
+seq(1:6) %>% 
+  sample(size = 100, replace = TRUE) %>% 
+  hist()
 
 #################################################
 ## PIPING
@@ -74,10 +82,16 @@ seq(from = 1, to = 7, length.out = 500) %>%
 ## There's a built-in dataset (vector) called sunspot.month. It contains the number of 
 ## sunspots from 1750 to the present. To read more about it, type ?sunspot.month
 
-## Write an expression that will
-##   i) round the number of sunspots to the nearest integer, 
-##   ii) take the square root of those
-##   iii) compute the standard deviation 
+## Write an expression that will:
 ##
-## HINT: The correct answer is 3.2.
+##  i) round the number of sunspots to the nearest integer
+##  ii) take the square root of those
+##  iii) compute the standard deviation 
+##
+## HINT: The correct answer is 3.2
+
+sunspot.month %>% 
+  round(0) %>% 
+  sqrt() %>%
+  sd()
 

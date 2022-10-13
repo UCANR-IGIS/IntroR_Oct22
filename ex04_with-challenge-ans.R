@@ -29,8 +29,11 @@ cars_df$speed %>% mean()
 
 ## CHALLENGE 1: What is the mean reaction distance?
 
+mean(cars_df$reaction_dist)
 
 ## CHALLENGE 2: Compute the frequency table in the surface column
+
+table(cars_df$surface)
 
 ## Make a scatter plot of speed vs breaking distance:
 
