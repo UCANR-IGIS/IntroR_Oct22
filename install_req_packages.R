@@ -1,5 +1,5 @@
 ## Required packages
-pkgs_req <- c("tidyverse", "palmerpenguins", "here", "zoo", "wrkshputils")
+pkgs_req <- c("tidyverse", "here", "zoo", "wrkshputils")
 
 ## See which ones are missing
 (pkgs_missing <- pkgs_req[!(pkgs_req %in% installed.packages()[,"Package"])])
