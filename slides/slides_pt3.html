@@ -8,7 +8,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="author" content=" October 14, 2022" />
   <meta name="copyright" content="<a href='https://ucanr-igis.github.io/IntroR_Oct22/' style='color:#444;'>https://ucanr-igis.github.io/IntroR_Oct22/</a>"/>
-  <title>Intro to R Pt3</title>
+  <title>Intro R Data Wrangling</title>
   <style type="text/css">
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -178,6 +178,8 @@ w3c_slidy.mouse_click_enabled = false;
 </script>
 <!-------
 
+Mostly to save time and increase interactivity, I decided to do a little quiz rather than a slide review.
+
 # Review from Part II 
 
 <div class = "indented2 li-single incremental">
@@ -217,21 +219,22 @@ style="display:block; margin:1em auto; border:none;" /></p>
 </li>
 <li>reshaping tables<br />
 </li>
-<li>ggplot<br />
-</li>
 <li>Exercise 6</li>
 </ul>
 </div>
 </div>
-<div id="data-wrangling-what-is-it" class="slide section level1">
-<h1>Data Wrangling: What is it?</h1>
-<p style="text-align:center; font-style:italic; font-weight:bold;">
+<div id="data-wrangling-what-do-we-mean" class="slide section level1">
+<h1>Data Wrangling: What do we mean?</h1>
+<p style="text-align:center; font-style:italic; font-weight:bold; line-height:180%;">
 <u>Whatever</u> is needed to get your data frame ready<br />
 for the function(s) you want to use for analysis and visualization.
 </p>
 <p><img src="images/jello_sculpture_575x340.jpg"
 style="display:block; margin:1em auto; border:none;" /></p>
-<p>Often includes one or more:</p>
+<p style="font-style:italic;">
+AKA data munging, manipulation, transformation, etc.
+</p>
+<p>Often includes one or more of:</p>
 <div class="indented2 li-single">
 <ul>
 <li>dropping columns<br />
@@ -246,8 +249,6 @@ style="display:block; margin:1em auto; border:none;" /></p>
 </li>
 <li>sorting rows<br />
 </li>
-<li>grouping rows<br />
-</li>
 <li>going from ‘long’ to ‘wide’ formats<br />
 </li>
 <li>joining data frames based on a common field<br />
@@ -256,7 +257,7 @@ style="display:block; margin:1em auto; border:none;" /></p>
 </li>
 <li>splitting tables<br />
 </li>
-<li>aggregating rows in groups</li>
+<li>aggregating rows into groups</li>
 </ul>
 </div>
 <p><br />
@@ -264,6 +265,7 @@ style="display:block; margin:1em auto; border:none;" /></p>
 </div>
 <div id="what-is-tidy-data" class="slide section level1">
 <h1>What is “tidy data”?</h1>
+<p>R functions like tidy data!</p>
 <p><img src="images/tidy_data_1260x435x256.png"
 style="display:block; margin:1em auto; border:none;" /></p>
 </div>
@@ -461,6 +463,17 @@ rel="noopener">Palmer Penguins</a> dataset.</p>
 style="display:block; margin:1em auto; border:none;" /></p>
 <p><br />
 </p>
+<!-------
+
+# Advanced `select()`
+
+Make this a kableExtra:
+select(-age)
+select(fname:grade)
+
+functions you can put in select(): 
+starts_with(), ends_with(), contains(), matches()
+---->
 </div>
 <div id="joining-tables" class="slide section level1">
 <h1>Joining Tables</h1>
@@ -579,159 +592,6 @@ style="display:block; margin:1em auto; border:1px solid grey;" /></a></p>
 </div>
 <p><br />
 </p>
-</div>
-<div id="ggplot-101" class="slide section level1">
-<h1>ggplot 101</h1>
-<p>Load Palmer Penguins data frame:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div>
-<pre><code>## # A tibble: 6 × 8
-##   species island    bill_length_mm bill_depth_mm flipper_l…¹ body_…² sex    year
-##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;       &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
-## 1 Adelie  Torgersen           39.1          18.7         181    3750 male   2007
-## 2 Adelie  Torgersen           39.5          17.4         186    3800 fema…  2007
-## 3 Adelie  Torgersen           40.3          18           195    3250 fema…  2007
-## 4 Adelie  Torgersen           NA            NA            NA      NA &lt;NA&gt;   2007
-## 5 Adelie  Torgersen           36.7          19.3         193    3450 fema…  2007
-## 6 Adelie  Torgersen           39.3          20.6         190    3650 male   2007
-## # … with abbreviated variable names ¹​flipper_length_mm, ²​body_mass_g</code></pre>
-<p><br />
-</p>
-<p>Use ggplot to make a scatterplot:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Bill Length vs Flipper Length for 3 Species of Penguins&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<p><img src="slides_pt3_files/figure-slidy/ggplot_demo-1.png" width="768" /></p>
-</div>
-<div id="anatomy-of-a-ggplot" class="slide section level1">
-<h1>Anatomy of a ggplot</h1>
-<style type="text/css">
-img.stackme {
-  position:absolute;
-  top:0;
-  left:0;
-}
-</style>
-<div style='position:relative; border:none; height:592px;'>
-<img src="images/ggplot_anatomy_001.png"/>
-<img src="images/ggplot_anatomy_002.png" class="incremental stackme"/>
-<img src="images/ggplot_anatomy_003.png" class="incremental stackme"/>
-<img src="images/ggplot_anatomy_004.png" class="incremental stackme"/>
-<img src="images/ggplot_anatomy_005.png" class="incremental stackme"/>
-<img src="images/ggplot_anatomy_006.png" class="incremental stackme"/>
-<img src="images/ggplot_anatomy_007.png" class="incremental stackme"/>
-</div>
-</div>
-<div id="maping-columns-to-symbology-properties-with-aes"
-class="slide section level1">
-<h1>Maping Columns to Symbology Properties with <code>aes()</code></h1>
-<pre style="font-weight:normal;">
-ggplot(penguins, <strong>aes(x = flipper_length_mm , y = bill_length_mm , color = species)</strong>) +
-  geom_point() +
-  ggtitle("Bill Length vs Flipper Length for 3 Species of Penguins")
-</pre>
-<div class="indented1 singlespace">
-<ul>
-<li><code>aes()</code> sets the default source for each visual property
-(or aesthetic) of the plot layers
-<ul>
-<li>note you don’t need to put column names in quotes<br />
-</li>
-</ul></li>
-<li>some common visual properties:</li>
-</ul>
-<div class="indented2">
-<p><code>x</code> - where it falls along the x-axis<br />
-<code>y</code> - where it falls along the y-axis<br />
-<code>color</code><br />
-<code>fill</code><br />
-<code>size</code></p>
-</div>
-<ul>
-<li>which visual properties are needed depends on the
-<code>geom_xxxx()</code> functions you use<br />
-</li>
-<li>only put in <code>aes()</code> the visual properties you want linked
-to the data</li>
-</ul>
-</div>
-</div>
-<div id="geoms" class="slide section level1">
-<h1>Geoms</h1>
-<div class="indented1">
-<ul>
-<li><p><code>geom_xxxx()</code> functions add layers</p></li>
-<li><p>drawn from the bottom up</p></li>
-<li><p>some common geoms:</p></li>
-</ul>
-<div class="indented2 singlespace" style="font-family:monospace;">
-<ul>
-<li>geom_point()<br />
-</li>
-<li>geom_bar()<br />
-</li>
-<li>geom_boxplot()<br />
-</li>
-<li>geom_histogram()<br />
-</li>
-</ul>
-</div>
-<ul>
-<li>visual properties can be linked to a column in the data frame or
-manually specified</li>
-</ul>
-<div class="indented2" style="font-family:monospace;">
-<p>geom_point(col = pop_size)<br />
-geom_point(col = “red”)</p>
-</div>
-<ul>
-<li><p>visual properties are inherited (from
-<code>aes()</code>)</p></li>
-<li><p>each geom has default color palettes and legend settings</p></li>
-</ul>
-</div>
-<p><br />
-</p>
-<h2 id="example">Example:</h2>
-<p>In the example below, note where <code>geom_boxplot()</code> gets its
-visual properties:</p>
-<div class="indented1 singlespace">
-<ul>
-<li><strong>x</strong> and <strong>y</strong> are linked to columns in
-the dataframe and inherited from <code>aes()</code><br />
-</li>
-<li><strong>color</strong>, <strong>fill</strong>, and
-<strong>size</strong> are manually specified</li>
-</ul>
-</div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">&quot;navy&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_boxplot).</code></pre>
-<p><img src="slides_pt3_files/figure-slidy/ggplot2-1.png" width="768" /></p>
-<p><br />
-</p>
-<h2 id="adding-visual-elements-to-a-plot">Adding visual elements to a
-plot</h2>
-<p><code>geom_xxxx()</code> functions can also be used to add other
-graphic elements:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">&quot;navy&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">43.9</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">58</span>, <span class="at">label =</span> <span class="st">&quot;Gentoo penguins </span><span class="sc">\n</span><span class="st"> are just the best!&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_boxplot).</code></pre>
-<p><img src="slides_pt3_files/figure-slidy/ggplot3-1.png" width="768" /></p>
-<p><br />
-</p>
-</div>
-<div id="appendices" class="slide section level1">
-<h1>Appendices</h1>
-<h2 id="advanced-select">Advanced select()</h2>
-<p>Make this a kableExtra: select(-age) select(fname:grade)</p>
-<p>functions you can put in select()</p>
-<p>starts_with(), ends_with(), contains(), matches()</p>
-<h2 id="logical-expressions">Logical expressions</h2>
-<p>Garret has a good slide with all the logical tests</p>
 </div>
 <div id="end" class="slide section level1">
 <h1>END!</h1>

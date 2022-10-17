@@ -8,7 +8,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="author" content=" October 12, 2022" />
   <meta name="copyright" content="<a href='https://ucanr-igis.github.io/IntroR_Oct22/' style='color:#444;'>https://ucanr-igis.github.io/IntroR_Oct22/</a>"/>
-  <title>Intro to R Pt2</title>
+  <title>Intro R Functions Import Data</title>
   <style type="text/css">
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -235,7 +235,6 @@ style="display:block; margin:1em auto; border:none;" /></p>
 <ul class="incremental">
 <li>data frames</li>
 <li>importing CSV files</li>
-<li>basic plotting with ggplot</li>
 <li>Exercise 4</li>
 </ul>
 </div>
@@ -375,9 +374,8 @@ target="_blank" rel="noopener">RStudio cheatsheets</a></li>
 </ul>
 </div>
 </div>
-<div id="calling-functions" class="slide section level1">
-<h1>Calling Functions</h1>
-<h2 id="getting-help">Getting Help</h2>
+<div id="function-help" class="slide section level1">
+<h1>Function Help</h1>
 <p>Every function has a help page. To get to it enter <code>?</code>
 followed by the name of the function (without parentheses):</p>
 <div class="indented2 indented2r">
@@ -387,17 +385,21 @@ followed by the name of the function (without parentheses):</p>
 style="display:block; margin:1em auto; border:1px solid grey;" /></p>
 <p><br />
 </p>
-<h2 id="arguments">Arguments</h2>
+</div>
+<div id="function-arguments" class="slide section level1">
+<h1>Function Arguments</h1>
 <p>Most functions take arguments. Arguments can be <em>required</em> or
 <em>optional</em> (i.e. have a default value).</p>
 <p>See the function’s help page to determine which arguments are
-expected.</p>
+expected. Example:</p>
 <p><img src="images/function-help-args_560x290x256.png"
 style="display:block; margin:1em auto; border:1px solid grey;" /></p>
-<p>Here, <code>x</code> and <code>size</code> have no default value -
-they are <em>required</em>.</p>
-<p><code>replace</code> and <code>prob</code> have default vaules - they
-are <em>optional</em>.</p>
+<div style="text-align:center;">
+<p><code>x</code> and <code>size</code> have no default value → they are
+<em>required</em></p>
+<p><code>replace</code> and <code>prob</code> have default values → they
+are <em>optional</em></p>
+</div>
 <p><br />
 </p>
 <h2 id="to-name-or-not-to-name-your-arguments-that-is-the-question.">To
@@ -427,6 +429,8 @@ the order expected</strong> and <strong>don’t skip any</strong>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">50</span>, <span class="dv">3</span>)  <span class="do">## generate 500 normally distributed random</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                   <span class="do">## numbers with a mean of 50 and stand dev = 3.</span></span></code></pre></div>
 </div>
+<p><br />
+</p>
 </div>
 <div id="piping" class="slide section level1">
 <h1>Piping</h1>
