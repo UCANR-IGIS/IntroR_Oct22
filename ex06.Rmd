@@ -35,7 +35,7 @@ We begin by importing the January 2050 projected daily minimum and maximum tempe
 
 ```{r chunk03}
 sac_temps_tbl <- read_csv("./data/sacramento_daily_temp_jan2050.csv")
-sac_temps_tbl
+sac_temps_tbl %>% head()
 ```
 
 \
@@ -61,7 +61,6 @@ sac_temps_tbl %>%
   pivot_wider(names_from = clim_var, values_from = temp_f) %>% 
   mutate(diurnal_range_f = tasmax - tasmin) %>% 
   head()
-
 ```
 
 
