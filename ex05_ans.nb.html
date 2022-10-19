@@ -2967,18 +2967,6 @@ rectangular data in text formats.</p>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShkcGx5cilcbmBgYCJ9 -->
 <pre class="r"><code>library(dplyr)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYZHBseXLigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOnN0YXRz4oCZOlxuXG4gICAgZmlsdGVyLCBsYWdcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmJhc2XigJk6XG5cbiAgICBpbnRlcnNlY3QsIHNldGRpZmYsIHNldGVxdWFsLCB1bmlvblxuIn0= -->
-<pre><code>
-Attaching package: ‘dplyr’
-
-The following objects are masked from ‘package:stats’:
-
-    filter, lag
-
-The following objects are masked from ‘package:base’:
-
-    intersect, setdiff, setequal, union</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><br />
@@ -3008,17 +2996,17 @@ preview a tibble:</p>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xpbXBzZShwZW5ndWlucylcbmBgYCJ9 -->
 <pre class="r"><code>glimpse(penguins)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMzQ0XG5Db2x1bW5zOiA4XG4kIHNwZWNpZXMgICAgICAgICAgIDxmY3Q+IEFkZWxpZSwgQWRlbGllLCBBZGVsaWUsIEFkZWxpZSwgQWRlbGllLCBBZGVsaWUsIEFkZWxpZSwgQWRlbGllLCBBZGVsaWUsIEFkZWxpZSwgQWRlbGllLCBBZGVs4oCmXG4kIGlzbGFuZCAgICAgICAgICAgIDxmY3Q+IFRvcmdlcnNlbiwgVG9yZ2Vyc2VuLCBUb3JnZXJzZW4sIFRvcmdlcnNlbiwgVG9yZ2Vyc2VuLCBUb3JnZXJzZW4sIFRvcmdlcnNlbiwgVG9yZ2Vyc2VuLCBUb3Jn4oCmXG4kIGJpbGxfbGVuZ3RoX21tICAgIDxkYmw+IDM5LjEsIDM5LjUsIDQwLjMsIE5BLCAzNi43LCAzOS4zLCAzOC45LCAzOS4yLCAzNC4xLCA0Mi4wLCAzNy44LCAzNy44LCA0MS4xLCAzOC42LCAzNC42LCAzNi424oCmXG4kIGJpbGxfZGVwdGhfbW0gICAgIDxkYmw+IDE4LjcsIDE3LjQsIDE4LjAsIE5BLCAxOS4zLCAyMC42LCAxNy44LCAxOS42LCAxOC4xLCAyMC4yLCAxNy4xLCAxNy4zLCAxNy42LCAyMS4yLCAyMS4xLCAxNy444oCmXG4kIGZsaXBwZXJfbGVuZ3RoX21tIDxpbnQ+IDE4MSwgMTg2LCAxOTUsIE5BLCAxOTMsIDE5MCwgMTgxLCAxOTUsIDE5MywgMTkwLCAxODYsIDE4MCwgMTgyLCAxOTEsIDE5OCwgMTg1LCAxOTUsIDE5NywgMTg04oCmXG4kIGJvZHlfbWFzc19nICAgICAgIDxpbnQ+IDM3NTAsIDM4MDAsIDMyNTAsIE5BLCAzNDUwLCAzNjUwLCAzNjI1LCA0Njc1LCAzNDc1LCA0MjUwLCAzMzAwLCAzNzAwLCAzMjAwLCAzODAwLCA0NDAwLCAzNzAw4oCmXG4kIHNleCAgICAgICAgICAgICAgIDxmY3Q+IG1hbGUsIGZlbWFsZSwgZmVtYWxlLCBOQSwgZmVtYWxlLCBtYWxlLCBmZW1hbGUsIG1hbGUsIE5BLCBOQSwgTkEsIE5BLCBmZW1hbGUsIG1hbGUsIG1hbGUsIGZl4oCmXG4kIHllYXIgICAgICAgICAgICAgIDxpbnQ+IDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIwMDcsIDIw4oCmXG4ifQ== -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMzQ0XG5Db2x1bW5zOiA4XG4kIHNwZWNpZXMgICAgICAgICAgIDxmY3Q+IEFkZWxpZSwgQWRlbGllLCBBZGVsaWUsIEFkZWxpZSwgQWRlbGllLCBBZGVsaWUsIEFkZWxpZSwgQWRlbGllLCBBZGVsaWUsIEFkZWxpZSwgQWRlbGllLCBBZGVsaWUsIEFkZWxpZSzigKZcbiQgaXNsYW5kICAgICAgICAgICAgPGZjdD4gVG9yZ2Vyc2VuLCBUb3JnZXJzZW4sIFRvcmdlcnNlbiwgVG9yZ2Vyc2VuLCBUb3JnZXJzZW4sIFRvcmdlcnNlbiwgVG9yZ2Vyc2VuLCBUb3JnZXJzZW4sIFRvcmdlcnNlbiwgVG9yZ+KAplxuJCBiaWxsX2xlbmd0aF9tbSAgICA8ZGJsPiAzOS4xLCAzOS41LCA0MC4zLCBOQSwgMzYuNywgMzkuMywgMzguOSwgMzkuMiwgMzQuMSwgNDIuMCwgMzcuOCwgMzcuOCwgNDEuMSwgMzguNiwgMzQuNiwgMzYuNiwgMzguNywgNDIu4oCmXG4kIGJpbGxfZGVwdGhfbW0gICAgIDxkYmw+IDE4LjcsIDE3LjQsIDE4LjAsIE5BLCAxOS4zLCAyMC42LCAxNy44LCAxOS42LCAxOC4xLCAyMC4yLCAxNy4xLCAxNy4zLCAxNy42LCAyMS4yLCAyMS4xLCAxNy44LCAxOS4wLCAyMC7igKZcbiQgZmxpcHBlcl9sZW5ndGhfbW0gPGludD4gMTgxLCAxODYsIDE5NSwgTkEsIDE5MywgMTkwLCAxODEsIDE5NSwgMTkzLCAxOTAsIDE4NiwgMTgwLCAxODIsIDE5MSwgMTk4LCAxODUsIDE5NSwgMTk3LCAxODQsIDE5NCwgMTc0LOKAplxuJCBib2R5X21hc3NfZyAgICAgICA8aW50PiAzNzUwLCAzODAwLCAzMjUwLCBOQSwgMzQ1MCwgMzY1MCwgMzYyNSwgNDY3NSwgMzQ3NSwgNDI1MCwgMzMwMCwgMzcwMCwgMzIwMCwgMzgwMCwgNDQwMCwgMzcwMCwgMzQ1MCwgNDUw4oCmXG4kIHNleCAgICAgICAgICAgICAgIDxmY3Q+IG1hbGUsIGZlbWFsZSwgZmVtYWxlLCBOQSwgZmVtYWxlLCBtYWxlLCBmZW1hbGUsIG1hbGUsIE5BLCBOQSwgTkEsIE5BLCBmZW1hbGUsIG1hbGUsIG1hbGUsIGZlbWFsZSwgZmVtYWzigKZcbiQgeWVhciAgICAgICAgICAgICAgPGludD4gMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMjAwNywgMuKAplxuIn0= -->
 <pre><code>Rows: 344
 Columns: 8
-$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torg…
-$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, 37.8, 41.1, 38.6, 34.6, 36.6…
-$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, 17.3, 17.6, 21.2, 21.1, 17.8…
-$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, 191, 198, 185, 195, 197, 184…
-$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, 3700, 3200, 3800, 4400, 3700…
-$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA, NA, female, male, male, fe…
-$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20…</code></pre>
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie,…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torg…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, 37.8, 41.1, 38.6, 34.6, 36.6, 38.7, 42.…
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, 17.3, 17.6, 21.2, 21.1, 17.8, 19.0, 20.…
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, 191, 198, 185, 195, 197, 184, 194, 174,…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, 3700, 3200, 3800, 4400, 3700, 3450, 450…
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA, NA, female, male, male, female, femal…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2…</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3230,13 +3218,13 @@ penguins:</p>
 
 glimpse(gentoo_billflip_tbl)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMTI0XG5Db2x1bW5zOiA0XG4kIHNwZWNpZXMgICAgICAgICAgIDxmY3Q+IEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW504oCmXG4kIGJpbGxfbGVuZ3RoX21tICAgIDxkYmw+IDQ2LjEsIDUwLjAsIDQ4LjcsIDUwLjAsIDQ3LjYsIDQ2LjUsIDQ1LjQsIDQ2LjcsIDQzLjMsIDQ2LjgsIDQwLjksIDQ5LjAsIDQ1LjUsIDQ4LjQsIDQ1LjgsIDQ54oCmXG4kIGZsaXBwZXJfbGVuZ3RoX21tIDxpbnQ+IDIxMSwgMjMwLCAyMTAsIDIxOCwgMjE1LCAyMTAsIDIxMSwgMjE5LCAyMDksIDIxNSwgMjE0LCAyMTYsIDIxNCwgMjEzLCAyMTAsIDIxNywgMjEwLCAyMjEsIDIw4oCmXG4kIGJpbGxfZmxpcF9yYXRpbyAgIDxkYmw+IDAuMjE4LCAwLjIxNywgMC4yMzIsIDAuMjI5LCAwLjIyMSwgMC4yMjEsIDAuMjE1LCAwLjIxMywgMC4yMDcsIDAuMjE4LCAwLjE5MSwgMC4yMjcsIDAuMjEzLCAw4oCmXG4ifQ== -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMTI0XG5Db2x1bW5zOiA0XG4kIHNwZWNpZXMgICAgICAgICAgIDxmY3Q+IEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbyzigKZcbiQgYmlsbF9sZW5ndGhfbW0gICAgPGRibD4gNDYuMSwgNTAuMCwgNDguNywgNTAuMCwgNDcuNiwgNDYuNSwgNDUuNCwgNDYuNywgNDMuMywgNDYuOCwgNDAuOSwgNDkuMCwgNDUuNSwgNDguNCwgNDUuOCwgNDkuMywgNDIuMCwgNOKAplxuJCBmbGlwcGVyX2xlbmd0aF9tbSA8aW50PiAyMTEsIDIzMCwgMjEwLCAyMTgsIDIxNSwgMjEwLCAyMTEsIDIxOSwgMjA5LCAyMTUsIDIxNCwgMjE2LCAyMTQsIDIxMywgMjEwLCAyMTcsIDIxMCwgMjIxLCAyMDksIDIyMiwgMjE44oCmXG4kIGJpbGxfZmxpcF9yYXRpbyAgIDxkYmw+IDAuMjE4LCAwLjIxNywgMC4yMzIsIDAuMjI5LCAwLjIyMSwgMC4yMjEsIDAuMjE1LCAwLjIxMywgMC4yMDcsIDAuMjE4LCAwLjE5MSwgMC4yMjcsIDAuMjEzLCAwLjIyNywgMC4yMTjigKZcbiJ9 -->
 <pre><code>Rows: 124
 Columns: 4
-$ species           &lt;fct&gt; Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gent…
-$ bill_length_mm    &lt;dbl&gt; 46.1, 50.0, 48.7, 50.0, 47.6, 46.5, 45.4, 46.7, 43.3, 46.8, 40.9, 49.0, 45.5, 48.4, 45.8, 49…
-$ flipper_length_mm &lt;int&gt; 211, 230, 210, 218, 215, 210, 211, 219, 209, 215, 214, 216, 214, 213, 210, 217, 210, 221, 20…
-$ bill_flip_ratio   &lt;dbl&gt; 0.218, 0.217, 0.232, 0.229, 0.221, 0.221, 0.215, 0.213, 0.207, 0.218, 0.191, 0.227, 0.213, 0…</code></pre>
+$ species           &lt;fct&gt; Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo,…
+$ bill_length_mm    &lt;dbl&gt; 46.1, 50.0, 48.7, 50.0, 47.6, 46.5, 45.4, 46.7, 43.3, 46.8, 40.9, 49.0, 45.5, 48.4, 45.8, 49.3, 42.0, 4…
+$ flipper_length_mm &lt;int&gt; 211, 230, 210, 218, 215, 210, 211, 219, 209, 215, 214, 216, 214, 213, 210, 217, 210, 221, 209, 222, 218…
+$ bill_flip_ratio   &lt;dbl&gt; 0.218, 0.217, 0.232, 0.229, 0.221, 0.221, 0.215, 0.213, 0.207, 0.218, 0.191, 0.227, 0.213, 0.227, 0.218…</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -3252,11 +3240,11 @@ $ bill_flip_ratio   &lt;dbl&gt; 0.218, 0.217, 0.232, 0.229, 0.221, 0.221, 0.215,
   select(species, flipper_length_mm) %&gt;% 
   glimpse()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMzVcbkNvbHVtbnM6IDJcbiQgc3BlY2llcyAgICAgICAgICAgPGZjdD4gR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnTigKZcbiQgZmxpcHBlcl9sZW5ndGhfbW0gPGludD4gMjMwLCAyMjEsIDIyMiwgMjIyLCAyMzAsIDIyNSwgMjIyLCAyMjUsIDIyNSwgMjI0LCAyMjEsIDIzMSwgMjMwLCAyMjksIDIyMywgMjIxLCAyMjEsIDIzMCwgMjLigKZcbiJ9 -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMzVcbkNvbHVtbnM6IDJcbiQgc3BlY2llcyAgICAgICAgICAgPGZjdD4gR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLCBHZW50b28sIEdlbnRvbywgR2VudG9vLOKAplxuJCBmbGlwcGVyX2xlbmd0aF9tbSA8aW50PiAyMzAsIDIyMSwgMjIyLCAyMjIsIDIzMCwgMjI1LCAyMjIsIDIyNSwgMjI1LCAyMjQsIDIyMSwgMjMxLCAyMzAsIDIyOSwgMjIzLCAyMjEsIDIyMSwgMjMwLCAyMjMsIDIyMSwgMjI04oCmXG4ifQ== -->
 <pre><code>Rows: 35
 Columns: 2
-$ species           &lt;fct&gt; Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gent…
-$ flipper_length_mm &lt;int&gt; 230, 221, 222, 222, 230, 225, 222, 225, 225, 224, 221, 231, 230, 229, 223, 221, 221, 230, 22…</code></pre>
+$ species           &lt;fct&gt; Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo, Gentoo,…
+$ flipper_length_mm &lt;int&gt; 230, 221, 222, 222, 230, 225, 222, 225, 225, 224, 221, 231, 230, 229, 223, 221, 221, 230, 223, 221, 224…</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->

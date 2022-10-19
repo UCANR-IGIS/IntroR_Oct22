@@ -10,7 +10,7 @@ output:
 
 Import a dataset with some (fake) genetic information about Penguins:
 
-```{r}
+```{r chunk01}
 library(readr)
 genetics_tbl <- read_csv("./data/penguin_genetic_diversity.csv")
 genetics_tbl
@@ -20,7 +20,7 @@ genetics_tbl
 
 We can join these columns to the Palmer Penguins dataset:
 
-```{r}
+```{r chunk02}
 library(palmerpenguins)
 library(dplyr)
 
@@ -31,9 +31,37 @@ penguins %>%
 
 # Reshape Data
 
-```{r}
+We begin by importing the January 2050 projected daily minimum and maximum temperature for Sacramento:
+
+```{r chunk03}
 sac_temps_tbl <- read_csv("./data/sacramento_daily_temp_jan2050.csv")
 sac_temps_tbl
+```
+
+\
+
+Convert from a long to wide format:
+
+```{r chunk04}
+library(tidyr)
+
+sac_temps_tbl %>% 
+  pivot_wider(names_from = clim_var, values_from = temp_f) %>% 
+  head()
+```
+
+\
+
+# Compute Daily Temperature Rnage
+
+Compute the daily temperature range:
+
+```{r chunk05}
+sac_temps_tbl %>% 
+  pivot_wider(names_from = clim_var, values_from = temp_f) %>% 
+  mutate(diurnal_range_f = tasmax - tasmin) %>% 
+  head()
+
 ```
 
 

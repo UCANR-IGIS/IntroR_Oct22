@@ -275,7 +275,7 @@ style="display:block; margin:1em auto; border:none;" /></p>
 style="display:block; margin:1em auto; border:none;" /></p>
 </div>
 <div id="better-ways-to-import-data" class="slide section level1">
-<h1>Better ways to import data</h1>
+<h1>Better Ways to Import Data</h1>
 <p><img src="images/readr_logo_121x140.png"
 style="margin-left:2em;" /> <img src="images/readxl-logo_121x140.png"
 style="margin-left:2em;" /> <img
@@ -283,20 +283,29 @@ src="images/googlesheets4_140x121.png" style="margin-left:2em;" /></p>
 <div class="indented2 li-single">
 <ul>
 <li>how to interpret the file format</li>
-<li>skip rows<br />
-</li>
-<li>use a header<br />
-</li>
-<li>rename columns<br />
-</li>
-<li>which data type to use for each column</li>
+<li>skip rows</li>
+</ul>
+<div class="indented2 li-single">
+<ul>
+<li>a fixed number of rows</li>
+<li>rows that start with a specific character (i.e., comments)</li>
 </ul>
 </div>
+<ul>
+<li>whether the file contain a header<br />
+</li>
+<li>option to rename columns<br />
+</li>
+<li>option to specify the data type for each column</li>
+</ul>
+</div>
+<p><br />
+</p>
 <p><a
 href="https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf"
 target="_blank" rel="noopener"><img
 src="images/data-import-cheatsheet_600x460x256.png"
-style="margin-left:1em; border:1px solid grey;" /></a></p>
+style="display:block; margin:1em auto; border:2px solid grey;" /></a></p>
 </div>
 <div id="data-wrangling-with-dplyr" class="slide section level1">
 <h1>Data Wrangling with <code>dplyr</code></h1>
@@ -306,15 +315,20 @@ style="float:right;" /></p>
 R.</p>
 <p>Part of the <a href="https://www.tidyverse.org"
 target="_blank">tidyverse</a>.</p>
-<p>Good way to familiarize yourself with it: explore the <a
+<p>Best way to familiarize yourself - explore the <a
 href="./extras/data-transformation.pdf" target="_blank">cheat
-sheet</a>.</p>
-<center>
-<a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf" target="_blank"><img src="images/data-transformation-600x464.png" style="width:600px; border:1px solid gray;"></a>
-</center>
+sheet</a>:</p>
+<p><a
+href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf"
+target="_blank" rel="noopener"><img
+src="images/data-transformation-600x464.png"
+style="display:block; margin:1em auto; border:2px solid grey;" /></a></p>
 <p><br />
 </p>
-<h2 id="useful-dplyr-functions">Useful <code>dplyr</code> functions</h2>
+</div>
+<div id="most-popular-dplyr-functions" class="slide section level1">
+<h1>Most Popular <code>dplyr</code> Functions</h1>
+<h2 id="wrangling">Wrangling</h2>
 <table class="tbl_compact">
 <tbody>
 <tr>
@@ -361,14 +375,41 @@ left_join(), right_join(), inner_join()
 </table>
 <p><br />
 </p>
-<p>Most of these functions <em>take a tibble</em>, and <em>return a
-tibble</em>.</p>
+<h2 id="table-summaries">Table summaries</h2>
+<table class="tbl_compact">
+<tbody>
+<tr>
+<td style="text-align:left;">
+summary stats for individual columns
+</td>
+<td style="text-align:left;font-family: monospace;">
+summarize() with:<br>n(), mean(), median(), sum(), first(), sd(), IQR(),
+etc.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+group rows (i.e., change the unit of analysis)
+</td>
+<td style="text-align:left;font-family: monospace;">
+group_by()
+</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+</p>
+<h2 id="chaining-dplyr-functions">Chaining dplyr functions</h2>
+<div class="indented2 indented2r">
+<p>Most <code>dplyr</code> functions <em>take a tibble</em>, and
+<em>return a tibble</em>.</p>
 <p>This makes them very <em>pipe friendly</em>.</p>
+</div>
 <p><br />
 </p>
 </div>
-<div id="dplyr-example" class="slide section level1">
-<h1><code>dplyr</code> example</h1>
+<div id="example" class="slide section level1">
+<h1>Example</h1>
 <p>Look at the <em>storms</em> tibble:</p>
 <div class="indented2 indented2r">
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>

@@ -149,6 +149,10 @@ var[big_num]
 
 var[ var >= 8 ]
 
+## Return elements of var that are divisible by 3:
+
+var[var %% 3 == 0]
+
 #############################################
 ## BASIC PLOTTING
 #############################################
